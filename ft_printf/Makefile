@@ -6,7 +6,7 @@
 #    By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/23 10:25:32 by dmalori           #+#    #+#              #
-#    Updated: 2021/01/23 10:25:33 by dmalori          ###   ########.fr        #
+#    Updated: 2021/01/23 16:23:47 by dmalori          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,13 @@ SRCS		= 	ft_printf.c \
 				ft_isdigit.c \
 				ft_isterminator.c \
 				ft_print_char.c \
-				ft_print_decimal \
+				ft_print_decimal.c \
 				ft_print_decimal_neg.c \
+				ft_print_decimal_unsigned.c \
 				ft_print_exa.c \
 				ft_print_zero.c \
 				ft_print_pointer.c \
+				ft_print_pointer_NULL.c \
 				ft_print_string.c \
 				ft_print_string_NULL.c \
 				ft_putlchar.c \
@@ -44,8 +46,11 @@ SRCS		= 	ft_printf.c \
 				ft_toupper.c \
 				ft_atoi_abs.c \
 				ft_itoa_base.c \
+				ft_itoa_base_unsigned.c \
 				ft_min.c \
-				ft_max.c
+				ft_max.c \
+				ft_toupper.c \
+				ft_toupperstr.c
 
 OBJS		= ${SRCS:.c=.o}
 

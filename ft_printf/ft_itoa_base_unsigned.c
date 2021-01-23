@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_base_unsigned.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:24:40 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 12:52:48 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/23 13:56:38 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_itoa_base(int number, int base)
+char *ft_itoa_base_unsigned(int number, int base)
 {
 	char *arr;
 	long int temp;
@@ -32,9 +32,9 @@ char *ft_itoa_base(int number, int base)
 	temp = (long int)number;
 	if (number < 0)
 	{
-		temp = temp * -1;
-		count++;
+		temp = 4294967295 - ((temp + 1) * -1);
 	}
+	
 	while (temp > 0)
 	{
 		temp /= base;
@@ -43,7 +43,7 @@ char *ft_itoa_base(int number, int base)
 	temp = (long int)number;
 	if (number < 0)
 	{
-		temp = temp * -1;
+		temp = 4294967295 - ((temp + 1) * -1);
 	}
 	if (!(str = malloc((count + 1) * sizeof(char))))
 		return (NULL);
@@ -55,7 +55,5 @@ char *ft_itoa_base(int number, int base)
 		count--;
 	}
 	count--;
-	if (number < 0)
-		str[count] = '-';
 	return (str);
 }

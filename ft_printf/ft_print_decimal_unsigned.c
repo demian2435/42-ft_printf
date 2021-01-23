@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_exa.c                                     :+:      :+:    :+:   */
+/*   ft_print_decimal_unsigned.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 10:24:29 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 16:19:43 by dmalori          ###   ########.fr       */
+/*   Created: 2021/01/23 10:24:31 by dmalori           #+#    #+#             */
+/*   Updated: 2021/01/23 15:50:16 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_print_exa(t_flags *flags, int n, int u)
+int ft_print_decimal_unsigned(t_flags *flags, int n)
 {
 	char *num;
-	int count;
 	int len;
+	int count;
 
 	if (!n)
 		return (ft_print_zero(flags));
 	count = 0;
-	if(!(num = ft_itoa_base_unsigned(n, 16)))
+	if (!(num = ft_itoa_base_unsigned(n, 10)))
 		return (-1);
-	if(u)
-		num = ft_toupperstr(num);
 	len = ft_strlen(num);
 	if (flags->minus)
 	{
