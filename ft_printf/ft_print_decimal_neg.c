@@ -31,12 +31,24 @@ int ft_print_decimal_neg(t_flags *flags, char *num)
 		while (count < flags->size)
 			count += ft_putlchar(' ');
 	}
+	else  if (!flags->zero || (flags->zero && flags->size > 0))
+	{
+		while (count < flags->size - (ft_max(len, flags->point) + 1))
+			count += ft_putlchar(' ');
+		count += ft_putlchar('-');
+		while (flags->point > len)
+		{
+			count += ft_putlchar('0');
+			flags->point -= 1;
+		}
+		count += ft_putlstr(&num[1], len);
+	}
 	else
 	{
 		while (count < flags->size - (ft_max(len, flags->point) + 1))
 			count += ft_putlchar(' ');
 		count += ft_putlchar('-');
-		while (flags->point > len + flags->zero)
+		while (flags->point > len + 1)
 		{
 			count += ft_putlchar('0');
 			flags->point -= 1;

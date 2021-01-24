@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-char *ft_itoa_base_unsigned(unsigned int number, int base)
+char *ft_itoa_base_unsigned_long(size_t number, int base)
 {
 	char *arr;
-	unsigned int temp;
+	size_t temp;
 	int count;
 	char *str;
 
@@ -29,26 +29,13 @@ char *ft_itoa_base_unsigned(unsigned int number, int base)
 	}
 	arr = "0123456789abcdef";
 	count = 0;
-	temp = number;
-	/*
-	if (number < 0)
-	{
-		temp = 4294967295 - ((temp + 1) * -1);
-	}
-	*/
-	
+	temp = number;	
 	while (temp > 0)
 	{
 		temp /= base;
 		count++;
 	}
 	temp = number;
-	/*
-	if (number < 0)
-	{
-		temp = 4294967295 - ((temp + 1) * -1);
-	}
-	*/
 	if (!(str = malloc((count + 1) * sizeof(char))))
 		return (NULL);
 	str[count] = 0;

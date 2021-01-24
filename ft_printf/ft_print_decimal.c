@@ -37,7 +37,7 @@ int ft_print_decimal(t_flags *flags, int n)
 		while (count < flags->size)
 			count += ft_putlchar(' ');
 	}
-	else
+	else if (!flags->zero || (flags->zero && flags->point > 0))
 	{
 		while (count < flags->size - ft_max(flags->point, len))
 			count += ft_putlchar(' ');
@@ -46,6 +46,12 @@ int ft_print_decimal(t_flags *flags, int n)
 			count += ft_putlchar('0');
 			flags->point -= 1;
 		}
+		count += ft_putlstr(num, len);
+	}
+	else if (flags->zero)
+	{
+		while (count < flags->size - len)
+			count += ft_putlchar('0');
 		count += ft_putlstr(num, len);
 	}
 	free(num);

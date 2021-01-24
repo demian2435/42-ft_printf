@@ -38,5 +38,7 @@ int ft_core_minus(char *str, t_flags *flags, va_list *args)
 		return (ft_core_point(str, flags, args));
 	else if (ft_isterminator(*str))
 		return (ft_core_print(str, flags, args));
+	else if (*str == '-')
+		return (ft_core_minus(str, flags, args));
 	return (-1);
 }

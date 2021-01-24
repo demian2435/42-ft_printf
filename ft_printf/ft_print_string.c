@@ -19,6 +19,8 @@ int ft_print_string(t_flags *flags, char *str)
 
 	if (!str)
 		return (ft_print_string_NULL(flags));
+	if (flags->point < -1)
+		flags->point = -1;
 	size = ft_strlen(str);
 	if (flags->point == -1)
 		flags->point = size;

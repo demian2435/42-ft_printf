@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int ft_print_exa(t_flags *flags, int n, int u)
+int ft_print_exa(t_flags *flags, size_t n, int u)
 {
 	char *num;
 	int count;

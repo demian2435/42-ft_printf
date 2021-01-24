@@ -12,48 +12,32 @@
 
 #include "ft_printf.h"
 
-int ft_print_pointer(t_flags *flags, void *ptr)
+int ft_print_pointer(t_flags *flags, size_t ptr)
 {
 	char *num;
-	char *address;
 	int count;
 	int len;
 
 	if (!ptr)
 		return (ft_print_pointer_NULL(flags));
-	if(!(num = ft_itoa_base_unsigned((int)ptr, 16)))
-		return (-1);
-	if(!(address = ft_itoa_base_unsigned((long int)ptr>>16, 16)))
+	if(!(num = ft_itoa_base_unsigned_long(ptr, 16)))
 		return (-1);
 	count = 0;
-	len = 14;
+	len = ft_strlen(num);
 	if (flags->minus)
 	{
 		count += ft_putlstr("0x", 2);
-		while (flags->point > len)
-		{
-			count += ft_putlchar('0');
-			flags->point -= 1;
-		}
-		count += ft_putlstr(address, 4);
-		count += ft_putlstr(num, 8);
+		count += ft_putlstr(num, len);
 		while (count < flags->size)
 			count += ft_putlchar(' ');
 	}
 	else
 	{
-		while (count < flags->size - ft_max(flags->point, len))
+		while (count < flags->size - len - 2)
 			count += ft_putlchar(' ');
 		count += ft_putlstr("0x", 2);
-		while (flags->point > len)
-		{
-			count += ft_putlchar('0');
-			flags->point -= 1;
-		}
-		count += ft_putlstr(address, 4);
-		count += ft_putlstr(num, 8);
+		count += ft_putlstr(num, len);
 	}
 	free(num);
-	free(address);
 	return (count);
 }

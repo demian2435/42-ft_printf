@@ -20,15 +20,15 @@ int ft_core_print(char *str, t_flags *flags, va_list *args)
 	else if (*str == 's')
 		return (ft_print_string(flags, va_arg(*args, char *)));
 	else if (*str == 'p')
-		return (ft_print_pointer(flags, va_arg(*args, void *)));
+		return (ft_print_pointer(flags, va_arg(*args, size_t)));
 	else if (*str == 'd' || *str == 'i')
-		return (ft_print_decimal(flags, va_arg(*args, int)));
+		return (ft_print_decimal(flags, va_arg(*args, ssize_t)));
 	else if (*str == 'u')
-		return (ft_print_decimal_unsigned(flags, va_arg(*args, int)));
+		return (ft_print_decimal_unsigned(flags, va_arg(*args, size_t)));
 	else if (*str == 'x')
-		return (ft_print_exa(flags, va_arg(*args, int), 0));
+		return (ft_print_exa(flags, va_arg(*args, size_t), 0));
 	else if (*str == 'X')
-		return (ft_print_exa(flags, va_arg(*args, int), 1));
+		return (ft_print_exa(flags, va_arg(*args, size_t), 1));
 	else if (*str == '%')
 		return (ft_putlchar('%'));
 	return (-1);

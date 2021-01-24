@@ -6,30 +6,18 @@ int ft_print_pointer_NULL(t_flags *flags)
 	int len;
 
 	count = 0;
-	len = 3;
+	len = 5;
 	if (flags->minus)
 	{
-		count += ft_putlstr("0x", 2);
-		while (flags->point > len)
-		{
-			count += ft_putlchar('0');
-			flags->point -= 1;
-		}
-		count += ft_putlchar('0');
+		count += ft_putlstr("(nil)", len);
 		while (count < flags->size)
 			count += ft_putlchar(' ');
 	}
 	else
 	{
-		while (count < flags->size - ft_max(flags->point, len))
+		while (count < flags->size - len)
 			count += ft_putlchar(' ');
-		count += ft_putlstr("0x", 2);
-		while (flags->point > len)
-		{
-			count += ft_putlchar('0');
-			flags->point -= 1;
-		}
-		count += ft_putlchar('0');
+		count += ft_putlstr("(nil)", len);
 	}
 	return (count);
 }

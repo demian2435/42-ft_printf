@@ -18,6 +18,8 @@ int ft_print_string_NULL(t_flags *flags)
 	int size;
 	char *str;
 
+	if (flags->point < -1)
+		flags->point = -1;
 	str = "(null)";
 	size = ft_strlen(str);
 	if (flags->point == -1)

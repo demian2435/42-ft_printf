@@ -40,7 +40,8 @@ int ft_atoi_abs(const char *nptr);
 int ft_min(int a, int b);
 int ft_max(int a, int b);
 char *ft_itoa_base(int number, int base);
-char *ft_itoa_base_unsigned(int number, int base);
+char *ft_itoa_base_unsigned(unsigned int number, int base);
+char *ft_itoa_base_unsigned_long(size_t number, int base);
 
 int ft_core_zero(char *str, t_flags *flags, va_list *args);
 int ft_core_star(char *str, t_flags *flags, va_list *args);
@@ -52,12 +53,12 @@ int ft_core_print(char *str, t_flags *flags, va_list *args);
 
 int ft_print_string(t_flags *flags, char *str);
 int ft_print_string_NULL(t_flags *flags);
-int ft_print_pointer(t_flags *flags, void *ptr);
+int ft_print_pointer(t_flags *flags, size_t ptr);
 int ft_print_pointer_NULL(t_flags *flags);
 int ft_print_decimal(t_flags *flags, int n);
 int ft_print_decimal_neg(t_flags *flags, char *num);
 int ft_print_decimal_unsigned(t_flags *flags, int num);
-int ft_print_exa(t_flags *flags, int n, int u);
+int ft_print_exa(t_flags *flags, size_t n, int u);
 int ft_print_char(t_flags *flags, int c);
 int ft_print_zero(t_flags *flags);
 
