@@ -52,9 +52,15 @@ int ft_printf(const char *str, ...)
 			else if (ft_isterminator(*str))
 				res += ft_core_print((char *)str, &flags, &args);
 			else
+			{
+				va_end(args);
 				return (-1);
+			}
 			if (res == -1)
+			{
+				va_end(args);
 				return (-1);
+			}
 			count += res;
 			while (!ft_isterminator(*str))
 				str++;
