@@ -43,6 +43,12 @@ int ft_printf(const char *str, ...)
 				res += ft_core_point((char *)str, &flags, &args);
 			else if (ft_isdigit(*str))
 				res += ft_core_digit((char *)str, &flags, &args);
+			else if (*str == 'n')
+			{
+				int *x = va_arg(args, int *);
+				*x = count;
+				res = 0;
+			}
 			else if (ft_isterminator(*str))
 				res += ft_core_print((char *)str, &flags, &args);
 			else
