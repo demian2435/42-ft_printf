@@ -12,11 +12,43 @@
 
 #include "ft_printf.h"
 
-int ft_print_exa(t_flags *flags, size_t n, int u)
+static int	ft_print_exa_2(t_flags *flags, char *num, int len)
 {
-	char *num;
 	int count;
-	int len;
+
+	count = 0;
+	while (count < flags->size - ft_max(flags->point, len))
+		count += ft_putlchar(' ');
+	while (flags->point > len)
+	{
+		count += ft_putlchar('0');
+		flags->point -= 1;
+	}
+	count += ft_putlstr(num, len);
+	return (count);
+}
+
+static int	ft_print_exa_1(t_flags *flags, char *num, int len)
+{
+	int count;
+
+	count = 0;
+		while (flags->point > len)
+		{
+			count += ft_putlchar('0');
+			flags->point -= 1;
+		}
+		count += ft_putlstr(num, len);
+		while (count < flags->size)
+			count += ft_putlchar(' ');
+	return (count);
+}
+
+int			ft_print_exa(t_flags *flags, size_t n, int u)
+{
+	char	*num;
+	int		count;
+	int		len;
 
 	if (!n)
 		return (ft_print_zero(flags));
@@ -27,27 +59,9 @@ int ft_print_exa(t_flags *flags, size_t n, int u)
 		num = ft_toupperstr(num);
 	len = ft_strlen(num);
 	if (flags->minus)
-	{
-		while (flags->point > len)
-		{
-			count += ft_putlchar('0');
-			flags->point -= 1;
-		}
-		count += ft_putlstr(num, len);
-		while (count < flags->size)
-			count += ft_putlchar(' ');
-	}
+		count = ft_print_exa_1(flags, num, len);
 	else
-	{
-		while (count < flags->size - ft_max(flags->point, len))
-			count += ft_putlchar(' ');
-		while (flags->point > len)
-		{
-			count += ft_putlchar('0');
-			flags->point -= 1;
-		}
-		count += ft_putlstr(num, len);
-	}
+		count = ft_print_exa_2(flags, num, len);
 	free(num);
 	return (count);
 }

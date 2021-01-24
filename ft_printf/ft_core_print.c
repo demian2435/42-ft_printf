@@ -14,7 +14,6 @@
 
 int ft_core_print(char *str, t_flags *flags, va_list *args)
 {
-	//printf("\nCORE PRINT\n");
 	if (*str == 'c')
 		return (ft_print_char(flags, va_arg(*args, int)));
 	else if (*str == 's')

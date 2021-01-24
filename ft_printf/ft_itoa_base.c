@@ -12,21 +12,34 @@
 
 #include "ft_printf.h"
 
-char *ft_itoa_base(int number, int base)
+static char		*ft_itoa_base_tris(int number, int base, char *arr, int count)
 {
-	char *arr;
-	long int temp;
-	int count;
-	char *str;
+	long int	temp;
+	char		*str;
 
-	if (number == 0)
+	temp = (long int)number;
+	if (number < 0)
+		temp = temp * -1;
+	if (!(str = malloc((count + 1) * sizeof(char))))
+		return (NULL);
+	str[count] = 0;
+	while (temp > 0)
 	{
-		if (!(str = malloc(2 * sizeof(char))))
-			return (NULL);
-		str[0] = '0';
-		str[1] = 0;
-		return (str);
+		str[count - 1] = arr[temp % base];
+		temp /= base;
+		count--;
 	}
+	if (number < 0)
+		str[0] = '-';
+	return (str);
+}
+
+static char		*ft_itoa_base_bis(int number, int base)
+{
+	char		*arr;
+	long int	temp;
+	int			count;
+
 	arr = "0123456789abcdef";
 	count = 0;
 	temp = (long int)number;
@@ -40,22 +53,20 @@ char *ft_itoa_base(int number, int base)
 		temp /= base;
 		count++;
 	}
-	temp = (long int)number;
-	if (number < 0)
+	return (ft_itoa_base_tris(number, base, arr, count));
+}
+
+char			*ft_itoa_base(int number, int base)
+{
+	char		*str;
+
+	if (number == 0)
 	{
-		temp = temp * -1;
+		if (!(str = malloc(2 * sizeof(char))))
+			return (NULL);
+		str[0] = '0';
+		str[1] = 0;
+		return (str);
 	}
-	if (!(str = malloc((count + 1) * sizeof(char))))
-		return (NULL);
-	str[count] = 0;
-	while (temp > 0)
-	{
-		str[count - 1] = arr[temp % base];
-		temp /= base;
-		count--;
-	}
-	count--;
-	if (number < 0)
-		str[count] = '-';
-	return (str);
+	return (ft_itoa_base_bis(number, base));
 }

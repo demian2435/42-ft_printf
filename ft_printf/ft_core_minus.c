@@ -14,7 +14,6 @@
 
 int ft_core_minus(char *str, t_flags *flags, va_list *args)
 {
-	//printf("\nCORE MINUS\n");
 	str++;
 	flags->minus = 1;
 	if (ft_isdigit(*str))
@@ -33,7 +32,6 @@ int ft_core_minus(char *str, t_flags *flags, va_list *args)
 		}
 		str++;
 	}
-
 	if (*str == '.')
 		return (ft_core_point(str, flags, args));
 	else if (ft_isterminator(*str))

@@ -19,6 +19,5 @@ t_flags ft_initflags(t_flags flags)
 	flags.size = 0;
 	flags.terminator = 0;
 	flags.zero = 0;
-
 	return (flags);
 }

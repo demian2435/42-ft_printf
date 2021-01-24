@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-int ft_print_char(t_flags *flags, int c)
+int		ft_print_char(t_flags *flags, int c)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (flags->minus)

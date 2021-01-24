@@ -12,24 +12,16 @@
 
 #include "ft_printf.h"
 
-char *ft_itoa_base_unsigned_long(size_t number, int base)
+static char		*ft_itoa_base_unsigned_long_bis(size_t number, int base)
 {
-	char *arr;
-	size_t temp;
-	int count;
-	char *str;
+	char	*arr;
+	size_t	temp;
+	int		count;
+	char	*str;
 
-	if (number == 0)
-	{
-		if (!(str = malloc(2 * sizeof(char))))
-			return (NULL);
-		str[0] = '0';
-		str[1] = 0;
-		return (str);
-	}
 	arr = "0123456789abcdef";
 	count = 0;
-	temp = number;	
+	temp = number;
 	while (temp > 0)
 	{
 		temp /= base;
@@ -47,4 +39,19 @@ char *ft_itoa_base_unsigned_long(size_t number, int base)
 	}
 	count--;
 	return (str);
+}
+
+char		*ft_itoa_base_unsigned_long(size_t number, int base)
+{
+	char	*str;
+	
+	if (number == 0)
+	{
+		if (!(str = malloc(2 * sizeof(char))))
+			return (NULL);
+		str[0] = '0';
+		str[1] = 0;
+		return (str);
+	}
+	return (ft_itoa_base_unsigned_long_bis(number, base));
 }

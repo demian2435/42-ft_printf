@@ -12,31 +12,38 @@
 
 #include "ft_printf.h"
 
-int ft_print_string_NULL(t_flags *flags)
+static int	ft_print_string_NULL_1(t_flags *flags, char *str, int len)
 {
-	int count;
-	int size;
-	char *str;
+	int		count;
+
+	count = 0;
+		if (flags->point >= len)
+			count += ft_putlstr(str, len);
+		while (count < flags->size)
+			count += ft_putlchar(' ');
+	return (count);
+}
+
+int			ft_print_string_NULL(t_flags *flags)
+{
+	int		count;
+	int		len;
+	char	*str;
 
 	if (flags->point < -1)
 		flags->point = -1;
 	str = "(null)";
-	size = ft_strlen(str);
+	len = ft_strlen(str);
 	if (flags->point == -1)
-		flags->point = size;
+		flags->point = len;
 	count = 0;
 	if (flags->minus)
+		count = ft_print_string_NULL_1(flags, str, len);
+	else if (flags->point >= len)
 	{
-		if (flags->point >= size)
-			count += ft_putlstr(str, size);
-		while (count < flags->size)
+		while (count < flags->size - len)
 			count += ft_putlchar(' ');
-	}
-	else if (flags->point >= size)
-	{
-		while (count < flags->size - size)
-			count += ft_putlchar(' ');
-		count += ft_putlstr(str, size);
+		count += ft_putlstr(str, len);
 	}
 	else
 	{

@@ -14,29 +14,27 @@
 
 int ft_print_pointer(t_flags *flags, size_t ptr)
 {
-	char *num;
-	int count;
-	int len;
+	char	*num;
+	int		count;
 
 	if (!ptr)
 		return (ft_print_pointer_NULL(flags));
 	if(!(num = ft_itoa_base_unsigned_long(ptr, 16)))
 		return (-1);
 	count = 0;
-	len = ft_strlen(num);
 	if (flags->minus)
 	{
 		count += ft_putlstr("0x", 2);
-		count += ft_putlstr(num, len);
+		count += ft_putlstr(num, ft_strlen(num));
 		while (count < flags->size)
 			count += ft_putlchar(' ');
 	}
 	else
 	{
-		while (count < flags->size - len - 2)
+		while (count < flags->size - ft_strlen(num) - 2)
 			count += ft_putlchar(' ');
 		count += ft_putlstr("0x", 2);
-		count += ft_putlstr(num, len);
+		count += ft_putlstr(num, ft_strlen(num));
 	}
 	free(num);
 	return (count);

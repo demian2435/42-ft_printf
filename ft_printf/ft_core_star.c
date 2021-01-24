@@ -14,7 +14,6 @@
 
 int ft_core_star(char *str, t_flags *flags, va_list *args)
 {
-	//printf("\nCORE STAR\n");
 	str++;
 	flags->size = va_arg(*args, int);
 	if (flags->size < 0)

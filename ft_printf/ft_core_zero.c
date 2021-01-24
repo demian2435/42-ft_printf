@@ -12,30 +12,8 @@
 
 #include "ft_printf.h"
 
-int ft_core_zero(char *str, t_flags *flags, va_list *args)
+static int	ft_core_zero_bis(char *str, t_flags *flags, va_list *args)
 {
-	//printf("\nCORE ZERO\n");
-	str++;
-	flags->zero = 1;
-	if (ft_isdigit(*str) && *str != '0')
-	{
-		flags->point = ft_atoi_abs(str);
-		while (ft_isdigit(*str))
-			str++;
-	}
-	else if (*str == '*')
-	{
-		
-		flags->point = va_arg(*args, int);
-		str++;
-		if (flags->point < 0)
-		{
-			flags->minus = 1;
-			flags->size = flags->point * -1;
-			flags->point = -1;
-		}
-	}
-
 	if (ft_isterminator(*str))
 		return (ft_core_print(str, flags, args));
 	else if (*str == '.')
@@ -51,8 +29,30 @@ int ft_core_zero(char *str, t_flags *flags, va_list *args)
 		return (ft_core_minus(str, flags, args));
 	}
 	else if (*str == '0')
-	{
 		return (ft_core_zero(str, flags, args));
-	}
 	return (-1);
+}
+
+int			ft_core_zero(char *str, t_flags *flags, va_list *args)
+{
+	str++;
+	flags->zero = 1;
+	if (ft_isdigit(*str) && *str != '0')
+	{
+		flags->point = ft_atoi_abs(str);
+		while (ft_isdigit(*str))
+			str++;
+	}
+	else if (*str == '*')
+	{
+		flags->point = va_arg(*args, int);
+		str++;
+		if (flags->point < 0)
+		{
+			flags->minus = 1;
+			flags->size = flags->point * -1;
+			flags->point = -1;
+		}
+	}
+	return (ft_core_zero_bis(str, flags, args));
 }
