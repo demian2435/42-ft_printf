@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:24:51 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/25 12:13:43 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 13:12:24 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int		ft_core_print(char *str, t_flags *flags, va_list *args)
 	else if (*str == 'X')
 		return (ft_print_exa(flags, va_arg(*args, size_t), 1));
 	else if (*str == '%')
-		return (ft_putlchar('%'));
+		return (ft_print_percent(flags));
 	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:24:19 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/25 12:19:35 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 13:10:25 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int				ft_core_digit(char *str, t_flags *flags, va_list *args);
 int				ft_core_point(char *str, t_flags *flags, va_list *args);
 int				ft_core_print(char *str, t_flags *flags, va_list *args);
 int				ft_print_string(t_flags *flags, char *str);
-int				ft_print_string_null(t_flags *flags);
 int				ft_print_pointer(t_flags *flags, size_t ptr);
 int				ft_print_pointer_null(t_flags *flags);
 int				ft_print_decimal(t_flags *flags, int n);
@@ -57,5 +56,6 @@ int				ft_print_decimal_unsigned(t_flags *flags, int num);
 int				ft_print_exa(t_flags *flags, size_t n, int u);
 int				ft_print_char(t_flags *flags, int c);
 int				ft_print_zero(t_flags *flags);
+int				ft_print_percent(t_flags *flags);
 
 #endif

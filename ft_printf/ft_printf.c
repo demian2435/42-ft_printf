@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:24:20 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/25 12:19:30 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:33:42 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int count)
 		res = ft_core_digit(str, flags, args);
 	else if (*str == 'n')
 	{
-		va_arg(*args, int *);
+		x = va_arg(*args, int *);
 		*x = count;
 		res = 0;
 	}

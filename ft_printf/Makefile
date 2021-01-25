@@ -6,7 +6,7 @@
 #    By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/23 10:25:32 by dmalori           #+#    #+#              #
-#    Updated: 2021/01/25 12:29:06 by dmalori          ###   ########.fr        #
+#    Updated: 2021/01/25 13:10:38 by dmalori          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ SRCS		= 	ft_printf.c \
 				ft_print_pointer.c \
 				ft_print_pointer_null.c \
 				ft_print_string.c \
-				ft_print_string_null.c \
+				ft_print_percent.c \
 				ft_putlchar.c \
 				ft_putlstr.c \
 				ft_strlen.c \

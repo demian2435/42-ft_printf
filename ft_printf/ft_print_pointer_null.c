@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 12:17:06 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/25 12:28:37 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:57:51 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 int	ft_print_pointer_null(t_flags *flags)
 {
-	int count;
-	int len;
+	int		count;
+	char	*str;
 
 	count = 0;
-	len = 5;
+	if (!flags->point)
+		str = "0x";
+	else
+		str = "0x0";
 	if (flags->minus)
 	{
-		count += ft_putlstr("(nil)", len);
+		count += ft_putlstr("0x0", ft_strlen(str));
 		while (count < flags->size)
 			count += ft_putlchar(' ');
 	}
 	else
 	{
-		while (count < flags->size - len)
+		while (count < flags->size - ft_strlen(str))
 			count += ft_putlchar(' ');
-		count += ft_putlstr("(nil)", len);
+		count += ft_putlstr("0x0", ft_strlen(str));
 	}
 	return (count);
 }
