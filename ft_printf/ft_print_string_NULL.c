@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string_NULL.c                             :+:      :+:    :+:   */
+/*   ft_print_string_null.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:24:26 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 10:25:21 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:19:17 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_print_string_NULL_1(t_flags *flags, char *str, int len)
+static int	ft_print_string_null_1(t_flags *flags, char *str, int len)
 {
 	int		count;
 
 	count = 0;
-		if (flags->point >= len)
-			count += ft_putlstr(str, len);
-		while (count < flags->size)
-			count += ft_putlchar(' ');
+	if (flags->point >= len)
+		count += ft_putlstr(str, len);
+	while (count < flags->size)
+		count += ft_putlchar(' ');
 	return (count);
 }
 
-int			ft_print_string_NULL(t_flags *flags)
+int			ft_print_string_null(t_flags *flags)
 {
 	int		count;
 	int		len;
@@ -38,7 +38,7 @@ int			ft_print_string_NULL(t_flags *flags)
 		flags->point = len;
 	count = 0;
 	if (flags->minus)
-		count = ft_print_string_NULL_1(flags, str, len);
+		count = ft_print_string_null_1(flags, str, len);
 	else if (flags->point >= len)
 	{
 		while (count < flags->size - len)

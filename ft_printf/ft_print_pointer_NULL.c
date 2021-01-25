@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_pointer_NULL.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/25 12:17:06 by dmalori           #+#    #+#             */
+/*   Updated: 2021/01/25 12:20:11 by dmalori          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int ft_print_pointer_NULL(t_flags *flags)
+int	ft_print_pointer_null(t_flags *flags)
 {
 	int count;
 	int len;
