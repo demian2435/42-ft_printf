@@ -6,11 +6,13 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:24:00 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 10:25:15 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:15:32 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+#include "ft_printf.h"
+
+int		ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

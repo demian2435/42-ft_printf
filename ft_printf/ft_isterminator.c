@@ -6,18 +6,18 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:24:42 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 10:25:15 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:14:26 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_isterminator(int c)
+int		ft_isterminator(int c)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' ||
 		c == 'i' || c == 'u' || c == 'x' || c == 'X' ||
 		c == '%' || c == 'n')
-		return 1;
+		return (1);
 	else
-		return 0;
+		return (0);
 }

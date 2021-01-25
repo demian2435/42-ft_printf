@@ -6,13 +6,13 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 11:49:14 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 10:25:27 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:19:42 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
 	const char *p;
 

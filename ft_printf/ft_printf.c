@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:24:20 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 12:01:14 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:19:30 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ static int		ft_return(va_list *args, int num)
 	return (num);
 }
 
-static int		ft_print_bis(char *str, t_flags *flags, va_list *args, int count)
+static int		ft_print_bis(char *str, t_flags *flags, va_list *args,
+int count)
 {
 	int res;
+	int *x;
 
 	if (*str == '0')
 		res = ft_core_zero(str, flags, args);
@@ -34,7 +36,7 @@ static int		ft_print_bis(char *str, t_flags *flags, va_list *args, int count)
 		res = ft_core_digit(str, flags, args);
 	else if (*str == 'n')
 	{
-		int *x = va_arg(*args, int *);
+		va_arg(*args, int *);
 		*x = count;
 		res = 0;
 	}

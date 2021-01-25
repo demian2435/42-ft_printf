@@ -6,18 +6,19 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:24:40 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 13:56:38 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:12:44 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char		*ft_itoa_base_unsigned_bis(unsigned int number, int base)
+static char				*ft_itoa_base_unsigned_bis(unsigned int number,
+int base)
 {
-	char			*arr;
-	unsigned int	temp;
-	int				count;
-	char			*str;
+	char				*arr;
+	unsigned int		temp;
+	int					count;
+	char				*str;
 
 	arr = "0123456789abcdef";
 	count = 0;
@@ -38,12 +39,12 @@ static char		*ft_itoa_base_unsigned_bis(unsigned int number, int base)
 		count--;
 	}
 	count--;
-	return (str);	
+	return (str);
 }
 
-char		*ft_itoa_base_unsigned(unsigned int number, int base)
+char					*ft_itoa_base_unsigned(unsigned int number, int base)
 {
-	char	*str;
+	char				*str;
 
 	if (number == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:23:54 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 10:25:22 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:19:18 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ int				ft_print_string(t_flags *flags, char *str)
 	int len;
 
 	if (!str)
-		return (ft_print_string_NULL(flags));
+		return (ft_print_string_null(flags));
 	len = ft_strlen(str);
 	if (flags->point <= -1)
-			flags->point = len;
+		flags->point = len;
 	if (flags->zero && flags->size == 0)
 	{
 		flags->size = flags->point;

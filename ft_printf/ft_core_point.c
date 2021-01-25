@@ -6,13 +6,13 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:24:52 by dmalori           #+#    #+#             */
-/*   Updated: 2021/01/23 10:25:11 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/01/25 12:14:44 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_core_point(char *str, t_flags *flags, va_list *args)
+int		ft_core_point(char *str, t_flags *flags, va_list *args)
 {
 	str++;
 	if (ft_isdigit(*str))
